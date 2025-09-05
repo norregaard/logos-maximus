@@ -1,0 +1,160 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1b1b1b;
+  --muted: #5a5a5a;
+  --card-bg: #fafafa;
+  --card-border: #e6e6e6;
+  --primary: #2b59c3;
+  --button-fg: #ffffff;
+}
+
+:root.dark {
+  --bg: #0f1115;
+  --fg: #ebecf0;
+  --muted: #a1a1a6;
+  --card-bg: #151821;
+  --card-border: #262a36;
+  --primary: #6ba4ff;
+  --button-fg: #0f1115;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.site-header, .site-footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 { font-size: 1.2rem; margin: 0; letter-spacing: 0.3px; }
+.brand { display: flex; align-items: center; gap: 0.5rem; }
+.logo { width: 24px; height: 24px; }
+
+.theme-toggle {
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--fg);
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus { position: static; width: auto; height: auto; padding: 0.5rem; }
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.quote {
+  font-family: Cardo, Georgia, serif;
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.author {
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.actions { display: flex; gap: 0.5rem; }
+
+button.primary {
+  background: var(--primary);
+  color: var(--button-fg);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.primary:hover { filter: brightness(0.95); }
+
+.site-footer {
+  color: var(--muted);
+  justify-content: center;
+}
+
+.chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.chips.right { justify-content: flex-end; }
+.filters { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.chip {
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--fg);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+.chip[aria-selected="true"], .chip[aria-pressed="true"] { background: var(--primary); color: var(--button-fg); border-color: var(--primary); }
+.search { border: 1px solid var(--card-border); background: var(--bg); color: var(--fg); border-radius: 8px; padding: 0.45rem 0.6rem; }
+
+.badge {
+  display: inline-block;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.ghost { background: transparent; border: 1px solid var(--card-border); color: var(--fg); border-radius: 8px; padding: 0.6rem 0.9rem; cursor: pointer; }
+
+.toast {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--fg);
+  color: var(--bg);
+  padding: 8px 12px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Animations */
+[data-animate] { opacity: 0; transform: translateY(6px); transition: opacity .25s ease, transform .25s ease; }
+[data-animate].in { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] { transition: none; }
+  .toast { transition: none; }
+}
+
+.favorites { margin-top: 2rem; }
+.favorites-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+.favorites-list .item { border: 1px solid var(--card-border); border-radius: 10px; padding: 0.75rem 1rem; background: var(--card-bg); }
+.favorites-list .item .q { font-family: Cardo, Georgia, serif; margin: 0 0 0.5rem; }
+.favorites-list .item .a { color: var(--muted); margin: 0; }
+.muted { color: var(--muted); }

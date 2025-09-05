@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LogosMaximus — Stoic Quotes</title>
+    <meta name="description" content="Stoic & Ancient Greek quotes for modern minds." />
+    <meta property="og:title" content="LogosMaximus" />
+    <meta property="og:description" content="Stoic & Ancient Greek quotes for modern minds." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/static/og.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/static/manifest.webmanifest" />
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="brand">
+        <img src="/static/favicon.svg" alt="LM" class="logo" />
+        <h1>LogosMaximus</h1>
+      </div>
+      <nav class="actions-bar" aria-label="Primary">
+        <button id="daily-toggle" class="chip" aria-pressed="false" title="Quote of the Day">Daily</button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </nav>
+    </header>
+
+    <main id="main" class="container" tabindex="-1">
+      <section class="filters" aria-label="Filters">
+        <div class="chips" role="tablist" aria-label="Categories">
+          <button class="chip" data-category="" role="tab" aria-selected="true">All</button>
+          <button class="chip" data-category="Stoicism" role="tab">Stoicism</button>
+          <button class="chip" data-category="Pre-Socratic" role="tab">Pre‑Socratic</button>
+          <button class="chip" data-category="Platonic" role="tab">Platonic</button>
+          <button class="chip" data-category="Peripatetic" role="tab">Peripatetic</button>
+        </div>
+        <div class="chips right">
+          <input id="search" class="search" type="search" placeholder="Search..." aria-label="Search quotes" />
+          <button class="chip" data-length="short" aria-pressed="false" title="Short quotes only">Short</button>
+        </div>
+      </section>
+
+      <section class="card quote-card" aria-live="polite" aria-atomic="true">
+        <blockquote id="quote" class="quote" data-animate>Loading wisdom…</blockquote>
+        <p id="author" class="author"></p>
+        <div class="meta">
+          <span id="category" class="badge" aria-label="Category"></span>
+        </div>
+        <div class="actions">
+          <button id="refresh" class="primary" title="New quote (N or Space)">New Quote</button>
+          <button id="favorite" class="ghost" aria-pressed="false" title="Favorite (F)">♡ Favorite</button>
+          <button id="copy" class="ghost" title="Copy (C)">Copy</button>
+          <button id="share" class="ghost" title="Share (S)">Share</button>
+        </div>
+      </section>
+
+      <section class="favorites" aria-label="Favorites">
+        <h2>Favorites</h2>
+        <div id="favorites-list" class="favorites-list" role="list">
+          <p class="muted">No favorites yet. Tap the heart to save quotes.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>Stoic & Ancient Greek quotes for modern minds.</small>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="/static/script.js"></script>
+  </body>
+  </html>

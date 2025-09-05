@@ -1,0 +1,13 @@
+{
+  "name": "LogosMaximus",
+  "short_name": "LogosMaximus",
+  "description": "Stoic & Ancient Greek quotes for modern minds.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2b59c3",
+  "icons": [
+    { "src": "/static/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
+
